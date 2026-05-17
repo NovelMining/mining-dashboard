@@ -29,10 +29,10 @@ body { background: #f0f2f5; color: #1a1a2e; }
 .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; font-size: 11px; color: #666; }
 .leg-dot { width: 9px; height: 9px; border-radius: 2px; display: inline-block; margin-right: 4px; vertical-align: middle; }
 .bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; font-size: 12px; }
-.bar-label { width: 100px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
+.bar-label { width: 110px; color: #666; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
 .bar-track { flex: 1; background: #f0f2f5; border-radius: 4px; height: 8px; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 4px; }
-.bar-val { width: 50px; text-align: right; color: #1a1a2e; font-weight: 600; flex-shrink: 0; }
+.bar-val { width: 55px; text-align: right; color: #1a1a2e; font-weight: 600; flex-shrink: 0; }
 .idle-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #f0f2f5; font-size: 12px; }
 .idle-row:last-child { border-bottom: none; }
 .idle-label { color: #666; }
@@ -79,11 +79,11 @@ body { background: #f0f2f5; color: #1a1a2e; }
   </div>
 
   <div class="kpi-grid" style="margin-top:10px;">
-    <div class="kpi-card"><div class="kpi-label">Нийт орлого</div><div class="kpi-value">790М</div><div class="kpi-sub">₮</div></div>
-    <div class="kpi-card"><div class="kpi-label">Цалин зардал</div><div class="kpi-value">347М</div><div class="kpi-sub">₮ · 43.9%</div></div>
-    <div class="kpi-card"><div class="kpi-label">Ашиг</div><div class="kpi-value kpi-ok">443М</div><div class="kpi-sub">₮ · 56.1%</div></div>
-    <div class="kpi-card"><div class="kpi-label">₮ / мото цаг</div><div class="kpi-value">60,248</div><div class="kpi-sub">₮/цаг</div></div>
     <div class="kpi-card"><div class="kpi-label">Өдрийн дундаж</div><div class="kpi-value">384</div><div class="kpi-sub">цаг/өдөр</div></div>
+    <div class="kpi-card"><div class="kpi-label">Өдрийн зорилт</div><div class="kpi-value">571.6</div><div class="kpi-sub">цаг/өдөр</div></div>
+    <div class="kpi-card"><div class="kpi-label">Өдрийн зөрүү</div><div class="kpi-value kpi-warn">-187.6</div><div class="kpi-sub">цаг/өдөр</div></div>
+    <div class="kpi-card"><div class="kpi-label">Нийт техник</div><div class="kpi-value">47</div><div class="kpi-sub">ширхэг</div></div>
+    <div class="kpi-card"><div class="kpi-label">Ажиллаагүй техник</div><div class="kpi-value kpi-warn">16</div><div class="kpi-sub">ширхэг</div></div>
   </div>
 
   <div class="two-col">
@@ -115,7 +115,7 @@ body { background: #f0f2f5; color: #1a1a2e; }
       <div class="idle-row"><span class="idle-label">Засвар (matched)</span><span><span class="idle-val">1,371ц</span><span class="idle-pct">58.9%</span></span></div>
       <div class="idle-row"><span class="idle-label">Засвар (бүртгэлгүй)</span><span><span class="idle-val">960ц</span><span class="idle-pct">41.2%</span></span></div>
       <div class="idle-row"><span class="idle-label">Оператор</span><span><span class="idle-val" style="color:#E24B4A;">-1ц</span><span class="idle-pct">~0%</span></span></div>
-      <div class="idle-row" style="margin-top:4px;"><span class="idle-label" style="font-weight:600;">Нийт</span><span><span class="idle-val">2,331ц</span></span></div>
+      <div class="idle-row"><span class="idle-label" style="font-weight:600;">Нийт</span><span><span class="idle-val">2,331ц</span></span></div>
     </div>
 
     <div class="card">
@@ -169,7 +169,7 @@ body { background: #f0f2f5; color: #1a1a2e; }
     <div class="card-title">Үйл ажиллагааны зөвлөмж</div>
     <div class="alert-box alert-crit">
       <span style="font-size:16px;">🚨</span>
-      <div><strong class="alert-text-crit">НЭН ТЭРГҮҮНД:</strong> <span>TR-6135 (хурдны хайрцаг бүрэн доголдол) — 30 хоногт капитал засвар. Lost revenue 50М ₮/сар.</span></div>
+      <div><strong class="alert-text-crit">НЭН ТЭРГҮҮНД:</strong> <span>TR-6135 (хурдны хайрцаг бүрэн доголдол) — 30 хоногт капитал засвар хийх эсвэл бөглөх.</span></div>
     </div>
     <div class="alert-box alert-crit">
       <span style="font-size:16px;">🚨</span>
@@ -179,9 +179,17 @@ body { background: #f0f2f5; color: #1a1a2e; }
       <span style="font-size:16px;">⚠️</span>
       <div><strong class="alert-text-warn">АНХААРАХ:</strong> <span>Засвар нийт сул цагийн 65% — Хөдөлгүүр + Явах эд анги 2 төрөл нийт цагийн 48%. PM хуваарь хатуу.</span></div>
     </div>
+    <div class="alert-box alert-warn">
+      <span style="font-size:16px;">⚠️</span>
+      <div><strong class="alert-text-warn">АНХААРАХ:</strong> <span>OP_LOG-д бүртгэлгүй 196 техник-ээлж засварт зогссон. Бүртгэлийн нэгдсэн журам гаргах.</span></div>
+    </div>
     <div class="alert-box alert-ok">
       <span style="font-size:16px;">💡</span>
-      <div><strong class="alert-text-ok">БОЛОМЖ:</strong> <span>16 техник 5-р сард огт ажиллаагүй. Шалгавал сар бүр ~960М ₮ нэмэлт орлого.</span></div>
+      <div><strong class="alert-text-ok">БОЛОМЖ:</strong> <span>16 техник 5-р сард огт ажиллаагүй. Шалгавал нэмэлт мото цаг нэмэгдэнэ.</span></div>
+    </div>
+    <div class="alert-box alert-ok">
+      <span style="font-size:16px;">💡</span>
+      <div><strong class="alert-text-ok">БОЛОМЖ:</strong> <span>Top 20 оператор нийт сул цагийн 58% үүсгэж байна. Нэр бүрд сахилгын ярилцлага хийх.</span></div>
     </div>
   </div>
 
@@ -193,64 +201,51 @@ body { background: #f0f2f5; color: #1a1a2e; }
 <script>
 document.getElementById('updateTime').textContent = new Date().toLocaleString('mn-MN');
 
-const dailyData = [441.4,422.5,424.6,406.9,384.8,407.4,368.0,394.6,410.4,388.2,353.0];
-const labels = ['5/1','5/2','5/3','5/4','5/5','5/6','5/7','5/8','5/9','5/10','5/11'];
-const target = 571.6;
+const dailyData=[441.4,422.5,424.6,406.9,384.8,407.4,368.0,394.6,410.4,388.2,353.0];
+const labels=['5/1','5/2','5/3','5/4','5/5','5/6','5/7','5/8','5/9','5/10','5/11'];
+const target=571.6;
 
-new Chart(document.getElementById('dailyChart'),{
-  type:'bar',
-  data:{labels,datasets:[
-    {label:'Бодит',data:dailyData,backgroundColor:dailyData.map(v=>v<target?'#E24B4A':'#378ADD'),borderRadius:4,borderSkipped:false},
-    {label:'Зорилт',data:Array(11).fill(target),type:'line',borderColor:'#aaa',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}
-  ]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-    scales:{x:{ticks:{color:'#888',font:{size:10}},grid:{display:false}},
-      y:{ticks:{color:'#888',font:{size:10},callback:v=>v+'ц'},grid:{color:'#f0f2f5'},min:200,max:650}}}
-});
+new Chart(document.getElementById('dailyChart'),{type:'bar',data:{labels,datasets:[
+  {label:'Бодит',data:dailyData,backgroundColor:dailyData.map(v=>v<target?'#E24B4A':'#378ADD'),borderRadius:4,borderSkipped:false},
+  {label:'Зорилт',data:Array(11).fill(target),type:'line',borderColor:'#aaa',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}
+]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{x:{ticks:{color:'#888',font:{size:10}},grid:{display:false}},
+    y:{ticks:{color:'#888',font:{size:10},callback:v=>v+'ц'},grid:{color:'#f0f2f5'},min:200,max:650}}}});
 
 const cumActual=[441.4,863.9,1288.5,1695.4,2080.2,2487.6,2855.6,3250.2,3660.6,4048.8,4401.8];
 const cumPlan=labels.map((_,i)=>Math.round(target*(i+1)));
-new Chart(document.getElementById('cumChart'),{
-  type:'line',
-  data:{labels,datasets:[
-    {label:'Бодит',data:cumActual,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.1)',fill:true,tension:0.35,pointRadius:3,pointBackgroundColor:'#1D9E75',borderWidth:2},
-    {label:'Төлөвлөгөө',data:cumPlan,borderColor:'#aaa',borderDash:[5,3],fill:false,pointRadius:0,borderWidth:1.5}
-  ]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
-    scales:{x:{ticks:{color:'#888',font:{size:10}},grid:{display:false}},
-      y:{ticks:{color:'#888',font:{size:10},callback:v=>(v/1000).toFixed(1)+'k'},grid:{color:'#f0f2f5'}}}}
-});
+new Chart(document.getElementById('cumChart'),{type:'line',data:{labels,datasets:[
+  {label:'Бодит',data:cumActual,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.1)',fill:true,tension:0.35,pointRadius:3,pointBackgroundColor:'#1D9E75',borderWidth:2},
+  {label:'Төлөвлөгөө',data:cumPlan,borderColor:'#aaa',borderDash:[5,3],fill:false,pointRadius:0,borderWidth:1.5}
+]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+  scales:{x:{ticks:{color:'#888',font:{size:10}},grid:{display:false}},
+    y:{ticks:{color:'#888',font:{size:10},callback:v=>(v/1000).toFixed(1)+'k'},grid:{color:'#f0f2f5'}}}}});
 
-new Chart(document.getElementById('repairPie'),{
-  type:'doughnut',
-  data:{labels:['Хөдөлгүүр','Явах эд анги','Хурдны хайрцаг','Кабин','ТҮ','Бусад'],
-    datasets:[{data:[26.3,21.5,9.2,7.6,6.1,29.3],backgroundColor:['#E24B4A','#378ADD','#EF9F27','#1D9E75','#7F77DD','#888'],borderWidth:0}]},
-  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{display:false}}}
-});
+new Chart(document.getElementById('repairPie'),{type:'doughnut',data:{
+  labels:['Хөдөлгүүр','Явах эд анги','Хурдны хайрцаг','Кабин','ТҮ','Бусад'],
+  datasets:[{data:[26.3,21.5,9.2,7.6,6.1,29.3],backgroundColor:['#E24B4A','#378ADD','#EF9F27','#1D9E75','#7F77DD','#888'],borderWidth:0}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{display:false}}}});
 
-const trucks=[{name:'TR-6135',calls:35,color:'#E24B4A',badge:'Яаралтай'},{name:'TR-6138',calls:29,color:'#EF9F27',badge:'Анхаарах'},{name:'TR-6053',calls:28,color:'#E24B4A',badge:'Яаралтай'},{name:'TR-6186',calls:26,color:'#EF9F27',badge:'Анхаарах'},{name:'TR-6064',calls:25,color:'#EF9F27',badge:'Анхаарах'}];
-const truckEl=document.getElementById('topTruck');
+const trucks=[{name:'TR-6135',calls:35,color:'#E24B4A'},{name:'TR-6138',calls:29,color:'#EF9F27'},{name:'TR-6053',calls:28,color:'#E24B4A'},{name:'TR-6186',calls:26,color:'#EF9F27'},{name:'TR-6064',calls:25,color:'#EF9F27'}];
 trucks.forEach(t=>{
   const row=document.createElement('div');row.className='bar-row';
-  row.innerHTML=`<span class="bar-label">${t.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(t.calls/35*100).toFixed(0)}%;background:${t.color};"></div></div><span class="bar-val">${t.calls}</span>`;
-  truckEl.appendChild(row);
+  row.innerHTML=`<span class="bar-label">${t.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(t.calls/35*100).toFixed(0)}%;background:${t.color};"></div></div><span class="bar-val">${t.calls} удаа</span>`;
+  document.getElementById('topTruck').appendChild(row);
 });
 
 const ops=[{name:'Мөнхбат',hours:113,color:'#E24B4A'},{name:'Билгүүн',hours:102.9,color:'#E24B4A'},{name:'Мөнхжаргал',hours:93.8,color:'#EF9F27'},{name:'Батбаяр',hours:89.7,color:'#EF9F27'},{name:'Балжиржанцан',hours:79.3,color:'#EF9F27'}];
-const opEl=document.getElementById('topOp');
 ops.forEach(o=>{
   const row=document.createElement('div');row.className='bar-row';
   row.innerHTML=`<span class="bar-label">${o.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(o.hours/113*100).toFixed(0)}%;background:${o.color};"></div></div><span class="bar-val">${o.hours}ц</span>`;
-  opEl.appendChild(row);
+  document.getElementById('topOp').appendChild(row);
 });
 
 const fleet=[{name:'TR-6141',util:82.3},{name:'EX-620',util:80.0},{name:'EX-616',util:79.5},{name:'TR-6061',util:79.2},{name:'TR-6057',util:79.6},{name:'EX-603',util:77.2},{name:'TR-6069',util:76.6}];
-const fleetEl=document.getElementById('fleetBars');
 fleet.forEach(f=>{
   const color=f.util>=80?'#1D9E75':'#EF9F27';
   const row=document.createElement('div');row.className='bar-row';
   row.innerHTML=`<span class="bar-label">${f.name}</span><div class="bar-track"><div class="bar-fill" style="width:${f.util}%;background:${color};"></div></div><span class="bar-val">${f.util}%</span>`;
-  fleetEl.appendChild(row);
+  document.getElementById('fleetBars').appendChild(row);
 });
 </script>
 </body>
