@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="300">
 <title>2026 Уурхайн KPI Dashboard</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -19,8 +20,6 @@ body { background: #f0f2f5; color: #1a1a2e; }
 .kpi-label { font-size: 11px; color: #888; margin-bottom: 4px; }
 .kpi-value { font-size: 22px; font-weight: 700; color: #1a1a2e; }
 .kpi-sub { font-size: 11px; color: #aaa; margin-top: 2px; }
-.kpi-warn { color: #E24B4A; }
-.kpi-ok { color: #3B6D11; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
 .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px; }
 .card { background: white; border-radius: 10px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
@@ -35,19 +34,11 @@ body { background: #f0f2f5; color: #1a1a2e; }
 .bar-val { width: 55px; text-align: right; color: #1a1a2e; font-weight: 600; flex-shrink: 0; }
 .idle-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #f0f2f5; font-size: 12px; }
 .idle-row:last-child { border-bottom: none; }
-.idle-label { color: #666; }
-.idle-val { font-weight: 600; color: #1a1a2e; }
-.idle-pct { font-size: 11px; color: #aaa; margin-left: 6px; }
 .ring-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-top: 8px; }
-.ring-label { font-size: 11px; color: #888; margin-top: 6px; text-align: center; }
 .full-card { background: white; border-radius: 10px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-top: 12px; }
 .alert-box { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; }
-.alert-crit { background: #FEF2F2; }
-.alert-warn { background: #FFFBEB; }
-.alert-ok { background: #F0FDF4; }
-.alert-text-crit { color: #991B1B; }
-.alert-text-warn { color: #92400E; }
-.alert-text-ok { color: #166534; }
+.alert-crit { background: #FEF2F2; } .alert-warn { background: #FFFBEB; } .alert-ok { background: #F0FDF4; }
+.alert-text-crit { color: #991B1B; } .alert-text-warn { color: #92400E; } .alert-text-ok { color: #166534; }
 @media (max-width: 768px) {
   .kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .two-col, .three-col { grid-template-columns: 1fr; }
@@ -55,74 +46,55 @@ body { background: #f0f2f5; color: #1a1a2e; }
 </style>
 </head>
 <body>
-
 <div class="header">
   <div>
     <h1>⛏ 2026 оны 5-р сарын Уурхайн Операцын KPI</h1>
-    <p>5/1 – 5/11 • 11 өдөр • 47 техник • 449 засварын дуудлага</p>
+    <p>5-р сар 1-11 өдөр • 11 өдрийн нэгтгэл • 47 техник • 449 засварын дуудлага • 47 техник • 560 засварын дуудлага</p>
   </div>
   <div class="last-update">
     <div>Сүүлд шинэчлэгдсэн</div>
-    <div id="updateTime"></div>
+    <div>2026-05-17 14:22</div>
   </div>
 </div>
-
 <div class="container">
-
   <div class="section-label">Үндсэн үзүүлэлтүүд</div>
   <div class="kpi-grid">
     <div class="kpi-card"><div class="kpi-label">Бодит мото цаг</div><div class="kpi-value">5,757</div><div class="kpi-sub">цаг</div></div>
-    <div class="kpi-card"><div class="kpi-label">Сарын төлөвлөгөө</div><div class="kpi-value">17,720</div><div class="kpi-sub">цаг</div></div>
-    <div class="kpi-card"><div class="kpi-label">Биелэлт</div><div class="kpi-value kpi-warn">32.5%</div><div class="kpi-sub">11 хоногийн</div></div>
-    <div class="kpi-card"><div class="kpi-label">Техник сул цаг</div><div class="kpi-value kpi-warn">2,331</div><div class="kpi-sub">цаг</div></div>
-    <div class="kpi-card"><div class="kpi-label">Засварын дуудлага</div><div class="kpi-value">449</div><div class="kpi-sub">удаа</div></div>
+    <div class="kpi-card"><div class="kpi-label">Сарын төлөвлөгөө</div><div class="kpi-value">17,720.0</div><div class="kpi-sub">цаг</div></div>
+    <div class="kpi-card"><div class="kpi-label">Биелэлт</div><div class="kpi-value" style="color:#E24B4A">32.5%</div><div class="kpi-sub">сарын</div></div>
+    <div class="kpi-card"><div class="kpi-label">Техник сул цаг</div><div class="kpi-value" style="color:#E24B4A">2,331</div><div class="kpi-sub">цаг</div></div>
+    <div class="kpi-card"><div class="kpi-label">Засварын дуудлага</div><div class="kpi-value">560</div><div class="kpi-sub">удаа</div></div>
   </div>
-
   <div class="kpi-grid" style="margin-top:10px;">
-    <div class="kpi-card"><div class="kpi-label">Өдрийн дундаж</div><div class="kpi-value">384</div><div class="kpi-sub">цаг/өдөр</div></div>
+    <div class="kpi-card"><div class="kpi-label">Өдрийн дундаж</div><div class="kpi-value">383.8</div><div class="kpi-sub">цаг/өдөр</div></div>
     <div class="kpi-card"><div class="kpi-label">Өдрийн зорилт</div><div class="kpi-value">571.6</div><div class="kpi-sub">цаг/өдөр</div></div>
-    <div class="kpi-card"><div class="kpi-label">Өдрийн зөрүү</div><div class="kpi-value kpi-warn">-187.6</div><div class="kpi-sub">цаг/өдөр</div></div>
+    <div class="kpi-card"><div class="kpi-label">Өдрийн зөрүү</div><div class="kpi-value" style="color:#E24B4A">-187.8</div><div class="kpi-sub">цаг/өдөр</div></div>
     <div class="kpi-card"><div class="kpi-label">Нийт техник</div><div class="kpi-value">47</div><div class="kpi-sub">ширхэг</div></div>
-    <div class="kpi-card"><div class="kpi-label">Ажиллаагүй техник</div><div class="kpi-value kpi-warn">16</div><div class="kpi-sub">ширхэг</div></div>
+    <div class="kpi-card"><div class="kpi-label">Ажиллаагүй техник</div><div class="kpi-value" style="color:#E24B4A">16</div><div class="kpi-sub">ширхэг</div></div>
   </div>
-
   <div class="two-col">
     <div class="card">
-      <div class="card-title">Өдрийн мото цаг (5/1 – 5/11)</div>
-      <div class="legend">
-        <span><span class="leg-dot" style="background:#378ADD;"></span>Бодит</span>
-        <span><span class="leg-dot" style="background:#aaa;"></span>Зорилт 571.6ц</span>
-      </div>
-      <div class="chart-wrap" style="height:200px;">
-        <canvas id="dailyChart" role="img" aria-label="Өдрийн мото цаг"></canvas>
-      </div>
+      <div class="card-title">Өдрийн мото цаг</div>
+      <div class="legend"><span><span class="leg-dot" style="background:#378ADD;"></span>Бодит</span><span><span class="leg-dot" style="background:#aaa;"></span>Зорилт 571.6ц</span></div>
+      <div class="chart-wrap" style="height:200px;"><canvas id="dailyChart" role="img" aria-label="Өдрийн мото цаг"></canvas></div>
     </div>
     <div class="card">
       <div class="card-title">Хуримтлагдсан мото цаг vs Төлөвлөгөө</div>
-      <div class="legend">
-        <span><span class="leg-dot" style="background:#1D9E75;"></span>Бодит</span>
-        <span><span class="leg-dot" style="background:#aaa;"></span>Төлөвлөгөө</span>
-      </div>
-      <div class="chart-wrap" style="height:200px;">
-        <canvas id="cumChart" role="img" aria-label="Хуримтлагдсан мото цаг"></canvas>
-      </div>
+      <div class="legend"><span><span class="leg-dot" style="background:#1D9E75;"></span>Бодит</span><span><span class="leg-dot" style="background:#aaa;"></span>Төлөвлөгөө</span></div>
+      <div class="chart-wrap" style="height:200px;"><canvas id="cumChart" role="img" aria-label="Хуримтлагдсан мото цаг"></canvas></div>
     </div>
   </div>
-
   <div class="three-col">
     <div class="card">
       <div class="card-title">Сул цагийн хариуцлага</div>
-      <div class="idle-row"><span class="idle-label">Засвар (matched)</span><span><span class="idle-val">1,371ц</span><span class="idle-pct">58.9%</span></span></div>
-      <div class="idle-row"><span class="idle-label">Засвар (бүртгэлгүй)</span><span><span class="idle-val">960ц</span><span class="idle-pct">41.2%</span></span></div>
-      <div class="idle-row"><span class="idle-label">Оператор</span><span><span class="idle-val" style="color:#E24B4A;">-1ц</span><span class="idle-pct">~0%</span></span></div>
-      <div class="idle-row"><span class="idle-label" style="font-weight:600;">Нийт</span><span><span class="idle-val">2,331ц</span></span></div>
+      <div class="idle-row"><span style="color:#666;">Засвар (matched)</span><span><strong>1,373ц</strong><span style="color:#aaa;margin-left:6px;">58.9%</span></span></div>
+      <div class="idle-row"><span style="color:#666;">Засвар (бүртгэлгүй)</span><span><strong>960ц</strong><span style="color:#aaa;margin-left:6px;">41.2%</span></span></div>
+      <div class="idle-row"><span style="color:#666;">Оператор</span><span><strong style="color:#E24B4A;">~0ц</strong></span></div>
+      <div class="idle-row"><span style="font-weight:600;">Нийт</span><span><strong>2,331ц</strong></span></div>
     </div>
-
     <div class="card">
       <div class="card-title">Засварын төрлийн задаргаа</div>
-      <div class="chart-wrap" style="height:140px;">
-        <canvas id="repairPie" role="img" aria-label="Засварын төрөл"></canvas>
-      </div>
+      <div class="chart-wrap" style="height:140px;"><canvas id="repairPie" role="img" aria-label="Засварын төрөл"></canvas></div>
       <div class="legend" style="margin-top:6px;font-size:10px;">
         <span><span class="leg-dot" style="background:#E24B4A;"></span>Хөдөлгүүр 26%</span>
         <span><span class="leg-dot" style="background:#378ADD;"></span>Явах 22%</span>
@@ -131,7 +103,6 @@ body { background: #f0f2f5; color: #1a1a2e; }
         <span><span class="leg-dot" style="background:#888;"></span>Бусад 36%</span>
       </div>
     </div>
-
     <div class="card">
       <div class="card-title">Биелэлтийн хэмжүүр</div>
       <div class="ring-wrap">
@@ -143,77 +114,40 @@ body { background: #f0f2f5; color: #1a1a2e; }
           <text x="60" y="55" text-anchor="middle" font-size="20" font-weight="700" fill="#1a1a2e">32.5%</text>
           <text x="60" y="72" text-anchor="middle" font-size="11" fill="#888">биелэлт</text>
         </svg>
-        <div class="ring-label">Сарын төлөвлөгөөний биелэлт</div>
+        <div style="font-size:11px;color:#888;margin-top:6px;text-align:center;">Сарын төлөвлөгөөний биелэлт</div>
         <div style="font-size:11px;color:#aaa;margin-top:4px;">Зөрүү: -11,963 цаг</div>
       </div>
     </div>
   </div>
-
   <div class="two-col">
-    <div class="card">
-      <div class="card-title">TOP 5 хамгийн их эвдрэх техник</div>
-      <div id="topTruck"></div>
-    </div>
-    <div class="card">
-      <div class="card-title">TOP 5 хамгийн их сул цагтай оператор</div>
-      <div id="topOp"></div>
-    </div>
+    <div class="card"><div class="card-title">TOP 5 хамгийн их эвдрэх техник</div><div id="topTruck"></div></div>
+    <div class="card"><div class="card-title">TOP 5 хамгийн их сул цагтай оператор</div><div id="topOp"></div></div>
   </div>
-
-  <div class="full-card">
-    <div class="card-title">Техникийн ашиглалтын хувь (TOP 7)</div>
-    <div id="fleetBars"></div>
-  </div>
-
+  <div class="full-card"><div class="card-title">Техникийн ашиглалтын хувь (TOP 7)</div><div id="fleetBars"></div></div>
   <div class="full-card">
     <div class="card-title">Үйл ажиллагааны зөвлөмж</div>
-    <div class="alert-box alert-crit">
-      <span style="font-size:16px;">🚨</span>
-      <div><strong class="alert-text-crit">НЭН ТЭРГҮҮНД:</strong> <span>TR-6135 (хурдны хайрцаг бүрэн доголдол) — 30 хоногт капитал засвар хийх эсвэл бөглөх.</span></div>
-    </div>
-    <div class="alert-box alert-crit">
-      <span style="font-size:16px;">🚨</span>
-      <div><strong class="alert-text-crit">НЭН ТЭРГҮҮНД:</strong> <span>TR-6053 (хөдөлгүүр хүчгүй, масло гоожилт) — 1 сард 19ц хөдөлгүүр засвар, capital overhaul хийх.</span></div>
-    </div>
-    <div class="alert-box alert-warn">
-      <span style="font-size:16px;">⚠️</span>
-      <div><strong class="alert-text-warn">АНХААРАХ:</strong> <span>Засвар нийт сул цагийн 65% — Хөдөлгүүр + Явах эд анги 2 төрөл нийт цагийн 48%. PM хуваарь хатуу.</span></div>
-    </div>
-    <div class="alert-box alert-warn">
-      <span style="font-size:16px;">⚠️</span>
-      <div><strong class="alert-text-warn">АНХААРАХ:</strong> <span>OP_LOG-д бүртгэлгүй 196 техник-ээлж засварт зогссон. Бүртгэлийн нэгдсэн журам гаргах.</span></div>
-    </div>
-    <div class="alert-box alert-ok">
-      <span style="font-size:16px;">💡</span>
-      <div><strong class="alert-text-ok">БОЛОМЖ:</strong> <span>16 техник 5-р сард огт ажиллаагүй. Шалгавал нэмэлт мото цаг нэмэгдэнэ.</span></div>
-    </div>
-    <div class="alert-box alert-ok">
-      <span style="font-size:16px;">💡</span>
-      <div><strong class="alert-text-ok">БОЛОМЖ:</strong> <span>Top 20 оператор нийт сул цагийн 58% үүсгэж байна. Нэр бүрд сахилгын ярилцлага хийх.</span></div>
-    </div>
+    <div class="alert-box alert-crit"><span style="font-size:16px;">🚨</span><div><strong class="alert-text-crit">НЭН ТЭРГҮҮНД:</strong> TR-6135 (хурдны хайрцаг бүрэн доголдол) — 30 хоногт капитал засвар хийх.</div></div>
+    <div class="alert-box alert-crit"><span style="font-size:16px;">🚨</span><div><strong class="alert-text-crit">НЭН ТЭРГҮҮНД:</strong> TR-6053 (хөдөлгүүр хүчгүй, масло гоожилт) — capital overhaul хийх.</div></div>
+    <div class="alert-box alert-warn"><span style="font-size:16px;">⚠️</span><div><strong class="alert-text-warn">АНХААРАХ:</strong> Засвар нийт сул цагийн 65% — PM хуваарь хатуу.</div></div>
+    <div class="alert-box alert-warn"><span style="font-size:16px;">⚠️</span><div><strong class="alert-text-warn">АНХААРАХ:</strong> OP_LOG-д бүртгэлгүй засварт зогссон техникүүд байгаа. Бүртгэлийн журам гаргах.</div></div>
+    <div class="alert-box alert-ok"><span style="font-size:16px;">💡</span><div><strong class="alert-text-ok">БОЛОМЖ:</strong> Ажиллаагүй техникүүдийг шалгаж идэвхжүүлэх.</div></div>
   </div>
-
-  <div style="text-align:center;padding:16px;font-size:11px;color:#aaa;">
-    Novel Mining © 2026 | KPI Dashboard
-  </div>
+  <div style="text-align:center;padding:16px;font-size:11px;color:#aaa;">Novel Mining © 2026 | KPI Dashboard | Автоматаар шинэчлэгддэг</div>
 </div>
-
 <script>
-document.getElementById('updateTime').textContent = new Date().toLocaleString('mn-MN');
-
-const dailyData=[441.4,422.5,424.6,406.9,384.8,407.4,368.0,394.6,410.4,388.2,353.0];
-const labels=['5/1','5/2','5/3','5/4','5/5','5/6','5/7','5/8','5/9','5/10','5/11'];
+const dailyData=[441.4, 388.2, 353.0, 336.8, 293.8, 328.6, 396.2, 422.5, 424.6, 406.9, 384.8, 407.4, 368.0, 394.6, 410.4];
+const labels=['5/1', '5/10', '5/11', '5/12', '5/13', '5/14', '5/15', '5/2', '5/3', '5/4', '5/5', '5/6', '5/7', '5/8', '5/9'];
 const target=571.6;
+const cumActual=[441.4, 829.6, 1182.6, 1519.4, 1813.2, 2141.8, 2538.0, 2960.5, 3385.1, 3792.0, 4176.8, 4584.2, 4952.2, 5346.8, 5757.2];
+const cumPlan=[572, 1143, 1715, 2286, 2858, 3430, 4001, 4573, 5144, 5716, 6288, 6859, 7431, 8002, 8574];
 
 new Chart(document.getElementById('dailyChart'),{type:'bar',data:{labels,datasets:[
   {label:'Бодит',data:dailyData,backgroundColor:dailyData.map(v=>v<target?'#E24B4A':'#378ADD'),borderRadius:4,borderSkipped:false},
-  {label:'Зорилт',data:Array(11).fill(target),type:'line',borderColor:'#aaa',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}
+  {label:'Зорилт',data:Array(labels.length).fill(target),type:'line',borderColor:'#aaa',borderDash:[4,3],borderWidth:1.5,pointRadius:0,fill:false}
 ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
   scales:{x:{ticks:{color:'#888',font:{size:10}},grid:{display:false}},
     y:{ticks:{color:'#888',font:{size:10},callback:v=>v+'ц'},grid:{color:'#f0f2f5'},min:200,max:650}}}});
 
-const cumActual=[441.4,863.9,1288.5,1695.4,2080.2,2487.6,2855.6,3250.2,3660.6,4048.8,4401.8];
-const cumPlan=labels.map((_,i)=>Math.round(target*(i+1)));
 new Chart(document.getElementById('cumChart'),{type:'line',data:{labels,datasets:[
   {label:'Бодит',data:cumActual,borderColor:'#1D9E75',backgroundColor:'rgba(29,158,117,0.1)',fill:true,tension:0.35,pointRadius:3,pointBackgroundColor:'#1D9E75',borderWidth:2},
   {label:'Төлөвлөгөө',data:cumPlan,borderColor:'#aaa',borderDash:[5,3],fill:false,pointRadius:0,borderWidth:1.5}
@@ -226,21 +160,25 @@ new Chart(document.getElementById('repairPie'),{type:'doughnut',data:{
   datasets:[{data:[26.3,21.5,9.2,7.6,6.1,29.3],backgroundColor:['#E24B4A','#378ADD','#EF9F27','#1D9E75','#7F77DD','#888'],borderWidth:0}]},
   options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{display:false}}}});
 
-const trucks=[{name:'TR-6135',calls:35,color:'#E24B4A'},{name:'TR-6138',calls:29,color:'#EF9F27'},{name:'TR-6053',calls:28,color:'#E24B4A'},{name:'TR-6186',calls:26,color:'#EF9F27'},{name:'TR-6064',calls:25,color:'#EF9F27'}];
+const trucks=[{"name": "TR-6135", "calls": 35}, {"name": "TR-6138", "calls": 29}, {"name": "TR-6053", "calls": 28}, {"name": "TR-6186", "calls": 26}, {"name": "TR-6064", "calls": 25}];
+const maxCalls=trucks.reduce((a,b)=>Math.max(a,b.calls),0);
 trucks.forEach(t=>{
   const row=document.createElement('div');row.className='bar-row';
-  row.innerHTML=`<span class="bar-label">${t.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(t.calls/35*100).toFixed(0)}%;background:${t.color};"></div></div><span class="bar-val">${t.calls} удаа</span>`;
+  const color=t.calls>=30?'#E24B4A':'#EF9F27';
+  row.innerHTML=`<span class="bar-label">${t.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(t.calls/maxCalls*100).toFixed(0)}%;background:${color};"></div></div><span class="bar-val">${t.calls} удаа</span>`;
   document.getElementById('topTruck').appendChild(row);
 });
 
-const ops=[{name:'Мөнхбат',hours:113,color:'#E24B4A'},{name:'Билгүүн',hours:102.9,color:'#E24B4A'},{name:'Мөнхжаргал',hours:93.8,color:'#EF9F27'},{name:'Батбаяр',hours:89.7,color:'#EF9F27'},{name:'Балжиржанцан',hours:79.3,color:'#EF9F27'}];
+const ops=[{"name": "Мөнхбат", "hours": 113.0}, {"name": "Билгүүн", "hours": 102.9}, {"name": "Мөнхжаргал", "hours": 93.8}, {"name": "Батбаяр", "hours": 89.7}, {"name": "Балжиржанцан", "hours": 79.3}];
+const maxHours=ops.reduce((a,b)=>Math.max(a,b.hours),0);
 ops.forEach(o=>{
   const row=document.createElement('div');row.className='bar-row';
-  row.innerHTML=`<span class="bar-label">${o.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(o.hours/113*100).toFixed(0)}%;background:${o.color};"></div></div><span class="bar-val">${o.hours}ц</span>`;
+  const color=o.hours>=100?'#E24B4A':'#EF9F27';
+  row.innerHTML=`<span class="bar-label">${o.name}</span><div class="bar-track"><div class="bar-fill" style="width:${(o.hours/maxHours*100).toFixed(0)}%;background:${color};"></div></div><span class="bar-val">${o.hours}ц</span>`;
   document.getElementById('topOp').appendChild(row);
 });
 
-const fleet=[{name:'TR-6141',util:82.3},{name:'EX-620',util:80.0},{name:'EX-616',util:79.5},{name:'TR-6061',util:79.2},{name:'TR-6057',util:79.6},{name:'EX-603',util:77.2},{name:'TR-6069',util:76.6}];
+const fleet=[{"name": "TR-6141", "util": 82.3, "hours": 253.5}, {"name": "EX-620", "util": 80.0, "hours": 264.1}, {"name": "TR-6057", "util": 79.7, "hours": 262.9}, {"name": "EX-616", "util": 79.5, "hours": 262.5}, {"name": "TR-6142", "util": 79.5, "hours": 218.5}, {"name": "TR-6061", "util": 79.2, "hours": 261.3}, {"name": "TR-6065", "util": 77.9, "hours": 248.5}];
 fleet.forEach(f=>{
   const color=f.util>=80?'#1D9E75':'#EF9F27';
   const row=document.createElement('div');row.className='bar-row';
